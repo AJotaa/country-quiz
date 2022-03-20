@@ -1,13 +1,94 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+#app {
+  background-image: url("https://country-quiz.andregrossi.com/static/media/background.7e2f750c.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+#home-page {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+#home-page .quiz-container {
+  /* display: grid;
+  grid-template-rows: 40% 60%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 15px;
+  width: 400px;
+  height: 350px;
+}
+
+#home-page .quiz-container .selection-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-page .quiz-container .selection-area .options-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+#home-page
+  .quiz-container
+  .selection-area
+  .options-list
+  .option-item
+  .base-button {
+  height: 2.2rem;
+  width: 15rem;
+  margin: 10px 0;
+  border-radius: 5rem;
+  border: none;
+  color: black;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(226, 226, 226);
+}
+#home-page
+  .quiz-container
+  .selection-area
+  .options-list
+  .option-item
+  .base-button:hover {
+  transform: scale(1.05) ;
+  cursor: pointer;
+}
+
+#home-page .quiz-container .quiz-header .cuestion .cuestion-country {
+  color: hsl(237deg 33% 48%);
+}
+
+#home-page .quiz-container .quiz-header .cuestion .country-flag {
+  height: 1rem;
 }
