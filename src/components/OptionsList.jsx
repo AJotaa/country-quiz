@@ -1,3 +1,4 @@
+import React from "react";
 import BaseButton from "./ui/BaseButton";
 
 function OptionsList({
@@ -8,7 +9,7 @@ function OptionsList({
 }) {
   const options =
     anwserOptions && anwserName
-      ? anwserOptions.map((option) => {
+      ? anwserOptions.map((option, i) => {
           let selectColor;
 
           if (showAnwser === true && option.capital === anwserName) {
@@ -17,12 +18,13 @@ function OptionsList({
           }
 
           return (
-            <li key={option.capital} className="option-item">
+            <li key={option.capital + i} className="option-item">
               <BaseButton
                 showAnwser={showAnwser}
                 color={selectColor}
                 value={option.capital}
                 optionSelection={optionSelection}
+                mode="option"
               />
             </li>
           );

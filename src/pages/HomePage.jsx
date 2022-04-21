@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import OptionsList from "../components/OptionsList";
+import QuizContainer from "../components/QuizContainer";
 
 class HomePage extends Component {
   constructor(props) {
@@ -10,8 +10,8 @@ class HomePage extends Component {
       cuestionCountry: null,
       results: [],
       stage: 0,
-      gameOver: false,
-      displeyResults: false,
+      // gameOver: false,
+      displayResults: false,
       finalResult: 0,
       anwserOptions: null,
 
@@ -90,9 +90,9 @@ class HomePage extends Component {
   }
 
   optionSelection(value) {
-    const { gameOver, cuestionCountry, results, stage } = this.state;
+    const { cuestionCountry, results, stage } = this.state;
 
-    if (gameOver === false) {
+    // if (gameOver === false) {
       let result;
       if (value === cuestionCountry.capital) {
         result = 1;
@@ -107,15 +107,16 @@ class HomePage extends Component {
       if (stage >= 3) {
         setTimeout(
           () =>
-            this.setState({
-              gameOver: true,
-            }),
+            // this.setState({
+            //   gameOver: true,
+            // })
+            this.showResults(),
           this.timeOut
         );
       } else {
         setTimeout(() => this.cuestionSelector(), this.timeOut);
       }
-    }
+    // }
   }
 
   async showResults() {
@@ -128,7 +129,7 @@ class HomePage extends Component {
     );
 
     this.setState({
-      displeyResults: true,
+      displayResults: true,
       finalResult: calculateResults,
     });
   }
@@ -139,8 +140,8 @@ class HomePage extends Component {
       otherOptions: null,
       results: [],
       stage: 0,
-      gameOver: false,
-      displeyResults: false,
+      // gameOver: false,
+      displayResults: false,
       finalResult: 0,
     });
 
@@ -150,8 +151,8 @@ class HomePage extends Component {
   render() {
     const {
       cuestionCountry,
-      gameOver,
-      displeyResults,
+      // gameOver,
+      displayResults,
       finalResult,
       anwserOptions,
       showAnwser,
@@ -159,51 +160,21 @@ class HomePage extends Component {
 
     const anwserName = cuestionCountry && cuestionCountry.capital;
 
-    console.log(cuestionCountry && cuestionCountry.flag);
-
     return (
       <section id="home-page">
-        <div className="quiz-container">
-          <div className="quiz-header">
-            <h1 className="title">Country Quiz</h1>
-            {cuestionCountry && (
-              <h2 className="cuestion">
-                The capital of
-                <span className="cuestion-country">
-                  {` ${cuestionCountry.name} `}
-                </span>
-                <img
-                  className="country-flag"
-                  src={cuestionCountry.flag}
-                  alt={cuestionCountry.name}
-                />{" "}
-                is...
-              </h2>
-            )}
-          </div>
+        <QuizContainer
+          cuestionCountry={cuestionCountry}
+          // gameOver={gameOver}
+          displayResults={displayResults}
+          finalResult={finalResult}
+          anwserOptions={anwserOptions}
+          showAnwser={showAnwser}
+          anwserName={anwserName}
 
-          {displeyResults === false ? (
-            <div className="selection-area">
-              {gameOver === false ? (
-                <OptionsList
-                  showAnwser={showAnwser}
-                  anwserName={anwserName}
-                  anwserOptions={anwserOptions}
-                  optionSelection={this.optionSelection}
-                />
-              ) : (
-                <button onClick={this.showResults}>show results</button>
-              )}
-            </div>
-          ) : (
-            <div className="results-area">
-              <div className="results">
-                <h3>{finalResult}</h3>
-              </div>
-              <button onClick={this.restartQuiz}>restart</button>
-            </div>
-          )}
-        </div>
+          optionSelection={this.optionSelection}
+          showResults={this.showResults}
+          restartQuiz={this.restartQuiz}
+        />
       </section>
     );
   }

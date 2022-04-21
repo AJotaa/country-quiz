@@ -40,49 +40,26 @@ code {
   padding: 20px;
   background-color: white;
   border-radius: 15px;
-  width: 400px;
-  height: 350px;
+  width: 350px;
+  height: 400px;
 }
 
 #home-page .quiz-container .selection-area {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 100%;
+  margin-top: 15px;
 }
 
 #home-page .quiz-container .selection-area .options-list {
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: space-between;
   align-items: center;
   list-style: none;
   padding: 0;
-}
-
-#home-page
-  .quiz-container
-  .selection-area
-  .options-list
-  .option-item
-  .base-button {
-  height: 2.2rem;
-  width: 15rem;
-  margin: 10px 0;
-  border-radius: 5rem;
-  border: none;
-  color: black;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgb(226, 226, 226);
-}
-#home-page
-  .quiz-container
-  .selection-area
-  .options-list
-  .option-item
-  .base-button:hover {
-  transform: scale(1.05) ;
-  cursor: pointer;
 }
 
 #home-page .quiz-container .quiz-header .cuestion .cuestion-country {
@@ -91,4 +68,39 @@ code {
 
 #home-page .quiz-container .quiz-header .cuestion .country-flag {
   height: 1rem;
+}
+
+#home-page .quiz-container .results {
+  /* background-color: pink; */
+  height: 8.5rem;
+  width: 8.5rem;
+  padding: 10px;
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 5px rgb(226, 226, 226);
+  margin: 20px;
+}
+
+#home-page .quiz-container .results h3 {
+  font-size: 2.7rem;
+}
+
+.base-button {
+  height: 2.2rem;
+  width: 15rem;
+  margin: 10px 0;
+  border-radius: 5rem;
+  border: none;
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(226, 226, 226);
+
+  transition: all 0.2s ease-out;
+}
+
+.base-button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
