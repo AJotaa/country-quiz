@@ -1,7 +1,15 @@
 import React, { Fragment } from "react";
 import { useState } from "react";
 
-function BaseButton({ optionSelection, value, color, showAnwser, mode, children, action }) {
+function BaseButton({
+  optionSelection,
+  value,
+  color,
+  showAnwser,
+  mode,
+  children,
+  action,
+}) {
   const [buttonColor, setButtonColor] = useState(null);
 
   function actionButton(value) {

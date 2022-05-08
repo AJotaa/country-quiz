@@ -18,7 +18,7 @@ code {
 }
 
 #app {
-  background-image: url("https://country-quiz.andregrossi.com/static/media/background.7e2f750c.png");
+  background-image: url("./img/background.png");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -42,6 +42,37 @@ code {
   border-radius: 15px;
   width: 350px;
   height: 400px;
+  box-shadow: 0px 10px 15px 0px #000000a8;
+}
+
+/* #home-page .quiz-container .quiz-header {
+  margin-top: 20px;
+} */
+
+#home-page .quiz-container .quiz-header h2 {
+  font-size: 1.3rem;
+  margin: 5px 0;
+}
+
+#home-page .quiz-container .quiz-header .img-header-container {
+  /* height: 5rem; */
+  position: relative;
+  width: 100%;
+  /* bottom: 50px; */
+  /* margin-bottom: 50px; */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  /* align-items: center; */
+}
+
+#home-page .quiz-container .quiz-header .img-header-container .img-header {
+  height: 8rem;
+  position: absolute;
+  /* bottom: 50px; */
+  bottom: 100%;
+  /* right: 0; */
+  /* margin: auto; */
 }
 
 #home-page .quiz-container .selection-area {
@@ -50,7 +81,7 @@ code {
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin-top: 15px;
+  /* margin-top: 10px; */
 }
 
 #home-page .quiz-container .selection-area .options-list {
@@ -94,13 +125,15 @@ code {
   border-radius: 5rem;
   border: none;
   color: black;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgb(226, 226, 226);
+  font-family: inherit;
+  background-color: #ececec;
+  box-shadow: 0px 1px 3px 1.5px #0000007c;
 
-  transition: all 0.2s ease-out;
+  transition: 300ms ease-out 0s;
 }
 
 .base-button:hover {
   transform: scale(1.05);
+  border: solid 1px #666;
   cursor: pointer;
 }
