@@ -3,6 +3,7 @@ import React from "react";
 import QuizHeader from "./QuizHeader";
 import QuizSelectionArea from "./QuizSelectionArea";
 import BaseButton from "./ui/BaseButton";
+import BaseSpinner from "./ui/BaseSpinner";
 
 function QuizContainer({
   optionSelection,
@@ -11,9 +12,11 @@ function QuizContainer({
 
   quizInfo,
 }) {
-  const { cuestionCountry, displayResults, gameStarted } = quizInfo;
+  const { cuestionCountry, displayResults, gameStarted, isLoading } = quizInfo;
 
   const anwserName = cuestionCountry && cuestionCountry.capital;
+
+  if (!isLoading) {
 
   return (
     <div className="quiz-container">
@@ -41,6 +44,21 @@ function QuizContainer({
       )}
     </div>
   );
+
+      } else {
+        return (
+          <div className="quiz-container">
+                <QuizHeader
+                  cuestionCountry={cuestionCountry}
+                  displayResults={displayResults}
+                  gameStarted={gameStarted}
+                />
+      
+                <BaseSpinner />
+          </div>
+        );
+      
+      }
 }
 
 export default QuizContainer;
