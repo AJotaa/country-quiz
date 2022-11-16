@@ -13,7 +13,7 @@ function BaseButton({
   const [buttonColor, setButtonColor] = useState(null);
 
   function actionButton(value) {
-    setButtonColor("rgba(255, 0, 0, 0.5)");
+    setButtonColor("#e74c3c");
 
     optionSelection(value);
   }

@@ -16,6 +16,8 @@ class HomePage extends Component {
       displayResults: false,
       showAnwser: false,
       gameStarted: false,
+
+      isLoading: true,
     };
 
     this.getCountries = this.getCountries.bind(this);
@@ -43,7 +45,7 @@ class HomePage extends Component {
       const shuffledCountries = independentCountries.sort(function () {
         return 0.5 - Math.random();
       });
-      const selectedCountries = shuffledCountries.slice(0, 50);
+      const selectedCountries = shuffledCountries.slice(0, 75);
 
       const selectedCountriesInfo = selectedCountries.map((item) => {
         return {
@@ -55,7 +57,7 @@ class HomePage extends Component {
         };
       });
 
-      this.setState({ countriesList: selectedCountriesInfo });
+      this.setState({ countriesList: selectedCountriesInfo, isLoading: false });
 
       this.cuestionSelector();
     } catch (e) {
@@ -173,6 +175,7 @@ class HomePage extends Component {
       anwserOptions,
       showAnwser,
       gameStarted,
+      isLoading,
     } = this.state;
 
     const quizInfo = {
@@ -182,6 +185,7 @@ class HomePage extends Component {
       anwserOptions,
       showAnwser,
       gameStarted,
+      isLoading,
     };
 
     return (

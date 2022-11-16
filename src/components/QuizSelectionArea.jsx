@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import OptionsList from "./OptionsList";
 import BaseButton from "./ui/BaseButton";
+import BaseSpinner from "./ui/BaseSpinner";
 
 function QuizSelectionArea({
   anwserName,
@@ -16,6 +17,9 @@ function QuizSelectionArea({
     finalResult,
     displayResults,
     showAnwser,
+    // cuestionCountry,
+    // stage
+    isLoading
   } = quizInfo;
 
   if (gameStarted === true) {
@@ -27,6 +31,7 @@ function QuizSelectionArea({
             anwserName={anwserName}
             anwserOptions={anwserOptions}
             optionSelection={optionSelection}
+            // stage={stage}
           />
         ) : (
           <Fragment>
@@ -42,7 +47,8 @@ function QuizSelectionArea({
   } else {
     return (
       <div className="selection-area">
-        <BaseButton action={gameStart}>Start</BaseButton>
+        { !isLoading ? <BaseButton action={gameStart}>Start</BaseButton> :
+        <BaseSpinner />}
       </div>
     );
   }

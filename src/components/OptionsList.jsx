@@ -14,7 +14,7 @@ function OptionsList({
 
           if (showAnwser === true && option.capital === anwserName) {
             selectColor =
-              option.capital === anwserName ? "rgba(0, 128, 0, 0.5)" : null;
+              option.capital === anwserName ? "#27ae60" : null;
           }
 
           return (
